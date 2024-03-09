@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class US206_Mert extends BaseDriver {
 
@@ -48,6 +49,26 @@ public class US206_Mert extends BaseDriver {
         WebElement shoppingCart= driver.findElement(By.xpath("//span[text()='Shopping cart']"));
         actionDriver.moveToElement(shoppingCart).click().build().perform();
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/cart"));
+
+        WebElement country= driver.findElement(By.xpath("//select[@id='CountryId']"));
+
+        Select countrySelect=new Select(country);
+        countrySelect.selectByIndex(0);
+
+        WebElement province= driver.findElement(By.xpath("//select[@id='StateProvinceId']"));
+
+        Select provinceSelect=new Select(province);
+        provinceSelect.selectByValue("0");
+
+        WebElement acceptConditions= driver.findElement(By.xpath("//input[@id='termsofservice']"));
+        actionDriver.moveToElement(acceptConditions).click().build().perform();
+
+        WebElement checkOut= driver.findElement(By.cssSelector("[id='checkout']"));
+        actionDriver.moveToElement(checkOut).click().build().perform();
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/onepagecheckout"));
+
+
+
 
 
 
