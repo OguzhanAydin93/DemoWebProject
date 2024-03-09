@@ -108,19 +108,40 @@ public class US206_Mert extends BaseDriver {
         actionDriver.moveToElement(pickUpInStore).click().perform();
 
         WebElement cntBt=driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
+        bekle.until(ExpectedConditions.elementToBeClickable(cntBt));
         actionDriver.moveToElement(cntBt).click().perform();
 
-        WebElement payment=driver.findElement(By.id("paymentmethod_3"));
+        WebElement payment=driver.findElement(By.id("paymentmethod_2"));
+        bekle.until(ExpectedConditions.elementToBeClickable(payment));
         actionDriver.moveToElement(payment).click().perform();
 
-        WebElement cnBtn=driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
+        WebElement cntBtn1=driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
+        actionDriver.moveToElement(cntBtn1).click().perform();
+
+        WebElement creditCard=driver.findElement(By.id("CreditCardType"));
+        Select card=new Select(creditCard);
+        card.selectByIndex(0);
+
+        WebElement cardHolderName=driver.findElement(By.id("CardholderName"));
+        actionDriver.moveToElement(cardHolderName).click().sendKeys("Mert Ozmen").perform();
+
+        WebElement cardHolder=driver.findElement(By.id("CardNumber"));
+        actionDriver.moveToElement(cardHolder).click().sendKeys("4242 4242 4242 4242").perform();
+
+        WebElement month=driver.findElement(By.id("ExpireMonth"));
+        Select expireMonth=new Select(month);
+        expireMonth.selectByValue("1");
+
+        WebElement year=driver.findElement(By.id("ExpireYear"));
+        Select expireYear=new Select(year);
+        expireYear.selectByValue("2032");
+
+        WebElement cardCode=driver.findElement(By.id("CardCode"));
+        actionDriver.moveToElement(cardCode).click().sendKeys("123").perform();
+
+        WebElement cnBtn=driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
         actionDriver.moveToElement(cnBtn).click().perform();
 
-        WebElement poNumber=driver.findElement(By.id("PurchaseOrderNumber"));
-        actionDriver.moveToElement(poNumber).click().sendKeys("345").perform();
-
-        WebElement cBtn=driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
-        actionDriver.moveToElement(cBtn).click().perform();
 
 
 
