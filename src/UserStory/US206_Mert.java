@@ -110,6 +110,9 @@ public class US206_Mert extends BaseDriver {
         WebElement cntBt=driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
         actionDriver.moveToElement(cntBt).click().perform();
 
+        WebElement payment=driver.findElement(By.id("paymentmethod_3"));
+        actionDriver.moveToElement(payment).click().perform();
+
 
 
 
