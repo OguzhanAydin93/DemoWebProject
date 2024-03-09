@@ -109,6 +109,27 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement continue2=driver.findElement(By.xpath("//input[@onclick='Shipping.save()']"));
         action.moveToElement(continue2).click().perform();
 
+        WebElement creditcard=driver.findElement(By.cssSelector("[id='paymentmethod_2']"));
+        action.moveToElement(creditcard).click().perform();
+
+        WebElement continue3=driver.findElement(By.className("button-1 payment-method-next-step-button"));
+        action.moveToElement(continue3).click().perform();
+
+        WebElement creditcardselect=driver.findElement(By.className("dropdownlists valid"));
+        Select select4=new Select(creditcardselect);
+        select4.selectByValue("1");
+
+        WebElement cardholdername=driver.findElement(By.xpath("//input[@id='CardholderName']"));
+        action.moveToElement(cardholdername).click().sendKeys("Oğuzhan Aydın").perform();
+
+        WebElement cardnumber=driver.findElement(By.cssSelector("[id='CardNumber']"));
+        action.moveToElement(cardnumber).click().sendKeys("4242424242424242").perform();
+
+
+
+
+
+
 
 
 
