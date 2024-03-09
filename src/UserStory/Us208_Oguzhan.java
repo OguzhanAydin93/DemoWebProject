@@ -5,7 +5,6 @@ import Utlity.BaseDriver;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -42,6 +41,17 @@ public class Us208_Oguzhan extends BaseDriver {
 
         WebElement addtocard=driver.findElement(By.cssSelector("[id='add-to-cart-button-31']"));
         action.moveToElement(addtocard).click().perform();
+
+        WebElement shoppingcard=driver.findElement(By.className("cart-label"));
+        action.moveToElement(shoppingcard).click().perform();
+
+        WebElement applycoupon=driver.findElement(By.name("applydiscountcouponcode"));
+        action.moveToElement(applycoupon).click().perform();
+
+        WebElement addgiftcard=driver.findElement(By.name("applygiftcardcouponcode"));
+        action.moveToElement(addgiftcard).click().perform();
+
+
 
 
 
