@@ -51,10 +51,10 @@ public class Us208_Oguzhan extends BaseDriver {
         action.moveToElement(applycoupon).click().perform();
 
         WebElement assert1=driver.findElement(By.cssSelector("[class='message']"));
-        Assert.assertTrue("Kupon Bilgi Görüntülenemedi",assert1.getText().contains("The coupon code you entered couldn't be applied to your order"));
+        Assert.assertTrue("Kupon Bilgi Görüntülenemedi",assert1.getText().equals("The coupon code you entered couldn't be applied to your order"));
 
         WebElement assert2=driver.findElement(By.cssSelector("[class='message']"));
-        Assert.assertTrue(" Gift Card Bilgisi Görüntülenemedi",assert2.getText().contains("The coupon code you entered couldn't be applied to your order"));
+        Assert.assertTrue(" Gift Card Bilgisi Görüntülenemedi",assert2.getText().equals("The coupon code you entered couldn't be applied to your order"));
 
         WebElement addgiftcard=driver.findElement(By.name("applygiftcardcouponcode"));
         action.moveToElement(addgiftcard).click().perform();
@@ -129,9 +129,21 @@ public class Us208_Oguzhan extends BaseDriver {
         Select select5=new Select(expirationdate1);
         select5.selectByValue("1");
 
-        WebElement expirationdate2=driver.findElement(By.cssSelector(""));
+        WebElement expirationdate2=driver.findElement(By.cssSelector("[name='ExpireYear']"));
         Select select6=new Select(expirationdate2);
         select6.selectByValue("2032");
+
+        WebElement cardcode=driver.findElement(By.xpath("//input[@id='CardCode']"));
+        action.moveToElement(cardcode).click().sendKeys("123").perform();
+
+        WebElement continue4=driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
+        action.moveToElement(continue4).click().perform();
+
+        WebElement continue5=driver.findElement(By.xpath("//input[@class='button-1 confirm-order-next-step-button']"));
+        action.moveToElement(continue5).click().perform();
+
+        WebElement assert3=driver.findElement(By.cssSelector("[class='title']"));
+        Assert.assertTrue("Bilgilendirme Mesajı Bulunamadı",assert3.getText().equals("Your order has been successfully processed!"));
 
 
 
