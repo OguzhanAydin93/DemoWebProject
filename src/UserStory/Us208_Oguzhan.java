@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class Us208_Oguzhan extends BaseDriver {
 
@@ -48,8 +49,39 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement applycoupon=driver.findElement(By.name("applydiscountcouponcode"));
         action.moveToElement(applycoupon).click().perform();
 
+
+
         WebElement addgiftcard=driver.findElement(By.name("applygiftcardcouponcode"));
         action.moveToElement(addgiftcard).click().perform();
+
+        WebElement countryselect=driver.findElement(By.cssSelector("[name='CountryId']"));
+        Select select1=new Select(countryselect);
+        select1.selectByValue("1");
+
+        WebElement zip=driver.findElement(By.className("zip-input"));
+        action.moveToElement(zip).sendKeys("16140").perform();
+
+        WebElement estimateshippin=driver.findElement(By.xpath("//input[@name='estimateshipping']"));
+        action.moveToElement(estimateshippin).click().perform();
+
+        WebElement check=driver.findElement(By.cssSelector("[id='termsofservice']"));
+        action.moveToElement(check).click().perform();
+
+        WebElement checkout=driver.findElement(By.xpath("//button[@type='submit']"));
+        action.moveToElement(checkout).click().perform();
+
+        WebElement company=driver.findElement(By.name("BillingNewAddress.Company"));
+        action.moveToElement(company).sendKeys().perform();
+
+
+
+
+
+
+
+
+
+
 
 
 
