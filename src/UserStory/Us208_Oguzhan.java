@@ -2,6 +2,7 @@ package UserStory;
 
 
 import Utlity.BaseDriver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -49,7 +50,11 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement applycoupon=driver.findElement(By.name("applydiscountcouponcode"));
         action.moveToElement(applycoupon).click().perform();
 
+        WebElement assert1=driver.findElement(By.cssSelector("[class='message']"));
+        Assert.assertTrue("Kupon Bilgi Görüntülenemedi",assert1.getText().contains("The coupon code you entered couldn't be applied to your order"));
 
+        WebElement assert2=driver.findElement(By.cssSelector("[class='message']"));
+        Assert.assertTrue(" Gift Card Bilgisi Görüntülenemedi",assert2.getText().contains("The coupon code you entered couldn't be applied to your order"));
 
         WebElement addgiftcard=driver.findElement(By.name("applygiftcardcouponcode"));
         action.moveToElement(addgiftcard).click().perform();
