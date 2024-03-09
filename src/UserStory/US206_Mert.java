@@ -18,6 +18,16 @@ public class US206_Mert extends BaseDriver {
         WebElement loginButton= driver.findElement(By.cssSelector("[class='ico-login']"));
         actionDriver.moveToElement(loginButton).click().build().perform();
 
+        WebElement inputEmail= driver.findElement(By.id("Email"));
+        actionDriver.moveToElement(inputEmail).sendKeys("mert123@gmail.com").build().perform();
+
+        WebElement inputPassword= driver.findElement(By.id("Password"));
+        actionDriver.moveToElement(inputPassword).sendKeys("pass123").build().perform();
+
+
+
+
+
 
 
 
