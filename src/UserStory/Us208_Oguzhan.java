@@ -33,8 +33,16 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement computers=driver.findElement(By.linkText("COMPUTERS"));
         action.moveToElement(computers).build().perform();
 
+        bekle.until(ExpectedConditions.elementToBeClickable(By.linkText("Notebooks")));
         WebElement notebooks=driver.findElement(By.linkText("Notebooks"));
         action.moveToElement(notebooks).click().perform();
+
+        WebElement laptop=driver.findElement(By.linkText("14.1-inch Laptop"));
+        action.moveToElement(laptop).click().perform();
+
+        WebElement addtocard=driver.findElement(By.cssSelector("[id='add-to-cart-button-31']"));
+        action.moveToElement(addtocard).click().perform();
+
 
 
 
