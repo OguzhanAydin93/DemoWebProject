@@ -101,6 +101,15 @@ public class US206_Mert extends BaseDriver {
         WebElement faxNumber=driver.findElement(By.xpath("//input[@name='BillingNewAddress.FaxNumber']"));
         actionDriver.moveToElement(faxNumber).click().sendKeys("123").perform();
 
+        WebElement continueBtn=driver.findElement(By.cssSelector("[onclick='Billing.save()']"));
+        actionDriver.moveToElement(continueBtn).click().perform();
+
+        WebElement pickUpInStore=driver.findElement(By.id("PickUpInStore"));
+        actionDriver.moveToElement(pickUpInStore).click().perform();
+
+        WebElement cntBt=driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
+        actionDriver.moveToElement(cntBt).click().perform();
+
 
 
 
