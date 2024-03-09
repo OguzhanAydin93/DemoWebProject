@@ -67,6 +67,50 @@ public class US206_Mert extends BaseDriver {
         actionDriver.moveToElement(checkOut).click().build().perform();
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/onepagecheckout"));
 
+        WebElement blngAd= driver.findElement(By.cssSelector("[id='BillingNewAddress_CountryId']"));
+
+        Select billingAdress=new Select(blngAd);
+        billingAdress.selectByIndex(1);
+
+        WebElement company= driver.findElement(By.cssSelector("[id='BillingNewAddress_Company']"));
+        actionDriver.moveToElement(company).click().sendKeys("New Company").build().perform();
+
+        WebElement blnCou= driver.findElement(By.cssSelector("[id='BillingNewAddress_CountryId']"));
+        Select blngCountry=new Select(blnCou);
+        blngCountry.selectByIndex(1);
+
+        WebElement pro= driver.findElement(By.xpath("//select[@id='BillingNewAddress_StateProvinceId']"));
+        Select prov=new Select(pro);
+        prov.selectByIndex(2);
+
+        WebElement city= driver.findElement(By.xpath("//input[@id='BillingNewAddress_City']"));
+        actionDriver.moveToElement(city).click().sendKeys("New York").build().perform();
+
+        WebElement adress1= driver.findElement(By.xpath("//input[@id='BillingNewAddress_Address1']"));
+        actionDriver.moveToElement(adress1).click().sendKeys("Macera dolu America").build().perform();
+
+        WebElement adress2=driver.findElement(By.xpath("//input[@id='BillingNewAddress_Address2']"));
+        actionDriver.moveToElement(adress2).click().sendKeys("Center of New York :)").build().perform();
+
+        WebElement postalCode=driver.findElement(By.xpath("//input[@name='BillingNewAddress.ZipPostalCode']"));
+        actionDriver.moveToElement(postalCode).click().sendKeys("42019").perform();
+
+        WebElement phoneNumber=driver.findElement(By.xpath("//input[@name='BillingNewAddress.PhoneNumber']"));
+        actionDriver.moveToElement(phoneNumber).click().sendKeys("12345").perform();
+
+        WebElement faxNumber=driver.findElement(By.xpath("//input[@name='BillingNewAddress.FaxNumber']"));
+        actionDriver.moveToElement(faxNumber).click().sendKeys("123").perform();
+
+
+
+
+
+
+
+
+
+
+
 
 
 
