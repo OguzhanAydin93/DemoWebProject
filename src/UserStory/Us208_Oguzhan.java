@@ -83,13 +83,40 @@ public class Us208_Oguzhan extends BaseDriver {
         select3.selectByValue("3");
 
         WebElement city=driver.findElement(By.cssSelector("[data-val-required='City is required']"));
-        action.moveToElement(city).click().sendKeys("buenos aires").perform();
+        action.moveToElement(city).click().sendKeys("Buenos Aires").perform();
 
         WebElement address1=driver.findElement(By.name("BillingNewAddress.Address1"));
         action.moveToElement(address1).click().sendKeys("Kısmetse").perform();
 
-        WebElement address2=driver.findElement(By.name("Arjantin"));
-        action.moveToElement(address2).click().sendKeys("").perform();
+        WebElement address2=driver.findElement(By.name("BillingNewAddress.Address2"));
+        action.moveToElement(address2).click().sendKeys("Arjantin").perform();
+
+        WebElement zip2 =driver.findElement(By.xpath("//input[@name='BillingNewAddress.ZipPostalCode']"));
+        action.moveToElement(zip2).click().sendKeys("16140").perform();
+
+        WebElement phonenumber=driver.findElement(By.cssSelector("[id='BillingNewAddress_PhoneNumber']"));
+        action.moveToElement(phonenumber).click().sendKeys("05464154532").perform();
+
+        WebElement fax=driver.findElement(By.cssSelector("[class='text-box single-line'][name='BillingNewAddress.FaxNumber']"));
+        action.moveToElement(fax).click().sendKeys("05595478565").perform();
+
+        WebElement continue1=driver.findElement(By.xpath("//input[@onclick='Billing.save()']"));
+        action.moveToElement(continue1).click().perform();
+
+        WebElement instorepickup=driver.findElement(By.name("PickUpInStore"));
+        action.moveToElement(instorepickup).click().perform();
+
+        WebElement continue2=driver.findElement(By.xpath("//input[@onclick='Shipping.save()']"));
+        action.moveToElement(continue2).click().perform();
+
+
+
+
+
+
+
+
+
 
 
 
