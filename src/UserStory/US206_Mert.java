@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class US206_Mert extends BaseDriver {
 
@@ -23,6 +24,20 @@ public class US206_Mert extends BaseDriver {
 
         WebElement inputPassword= driver.findElement(By.id("Password"));
         actionDriver.moveToElement(inputPassword).sendKeys("pass123").build().perform();
+
+        WebElement lgnBtn= driver.findElement(By.xpath("//input[@class='button-1 login-button']"));
+        actionDriver.moveToElement(lgnBtn).click().build().perform();
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
+
+        WebElement computers= driver.findElement(By.linkText("Computers"));
+        actionDriver.moveToElement(computers).build().perform();
+
+        WebElement noteBooks= driver.findElement(By.linkText("Notebooks"));
+        bekle.until(ExpectedConditions.elementToBeClickable(noteBooks));
+        actionDriver.moveToElement(noteBooks).click().build().perform();
+
+
+
 
 
 
