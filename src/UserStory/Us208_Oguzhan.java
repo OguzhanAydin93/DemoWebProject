@@ -76,7 +76,9 @@ public class Us208_Oguzhan extends BaseDriver {
         action.moveToElement(checkout).click().perform();
 
         WebElement company=driver.findElement(By.name("BillingNewAddress.Company"));
-        action.moveToElement(company).sendKeys().perform();
+        action.moveToElement(company).sendKeys("Techno Study").perform();
+
+
 
 
 
