@@ -76,7 +76,25 @@ public class Us208_Oguzhan extends BaseDriver {
         action.moveToElement(checkout).click().perform();
 
         WebElement company=driver.findElement(By.name("BillingNewAddress.Company"));
-        action.moveToElement(company).sendKeys("Techno Study").perform();
+        action.moveToElement(company).click().sendKeys("Techno Study").perform();
+
+        WebElement countryselect2=driver.findElement(By.name("BillingNewAddress.CountryId"));
+        Select select3=new Select(countryselect2);
+        select3.selectByValue("3");
+
+        WebElement city=driver.findElement(By.cssSelector("[data-val-required='City is required']"));
+        action.moveToElement(city).click().sendKeys("buenos aires").perform();
+
+        WebElement address1=driver.findElement(By.name("BillingNewAddress.Address1"));
+        action.moveToElement(address1).click().sendKeys("Kısmetse").perform();
+
+        WebElement address2=driver.findElement(By.name("Arjantin"));
+        action.moveToElement(address2).click().sendKeys("").perform();
+
+
+
+
+
 
 
 
