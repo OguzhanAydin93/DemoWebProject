@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Us208_Oguzhan extends BaseDriver {
 
@@ -28,6 +29,17 @@ public class Us208_Oguzhan extends BaseDriver {
 
         WebElement loginbutton=driver.findElement(By.cssSelector("[class='button-1 login-button']"));
         action.moveToElement(loginbutton).click().perform();
+
+        WebElement computers=driver.findElement(By.linkText("COMPUTERS"));
+        action.moveToElement(computers).build().perform();
+
+        WebElement notebooks=driver.findElement(By.linkText("Notebooks"));
+        action.moveToElement(notebooks).click().perform();
+
+
+
+
+
 
 
 
