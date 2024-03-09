@@ -125,6 +125,14 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement cardnumber=driver.findElement(By.cssSelector("[id='CardNumber']"));
         action.moveToElement(cardnumber).click().sendKeys("4242424242424242").perform();
 
+        WebElement expirationdate1=driver.findElement(By.cssSelector("[id='ExpireMonth']"));
+        Select select5=new Select(expirationdate1);
+        select5.selectByValue("1");
+
+        WebElement expirationdate2=driver.findElement(By.cssSelector(""));
+        Select select6=new Select(expirationdate2);
+        select6.selectByValue("2032");
+
 
 
 
