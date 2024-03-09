@@ -113,6 +113,15 @@ public class US206_Mert extends BaseDriver {
         WebElement payment=driver.findElement(By.id("paymentmethod_3"));
         actionDriver.moveToElement(payment).click().perform();
 
+        WebElement cnBtn=driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
+        actionDriver.moveToElement(cnBtn).click().perform();
+
+        WebElement poNumber=driver.findElement(By.id("PurchaseOrderNumber"));
+        actionDriver.moveToElement(poNumber).click().sendKeys("345").perform();
+
+        WebElement cBtn=driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
+        actionDriver.moveToElement(cBtn).click().perform();
+
 
 
 
