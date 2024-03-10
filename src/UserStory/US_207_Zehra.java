@@ -15,7 +15,7 @@ public class US_207_Zehra extends BaseDriver {
         login.click();
 
         WebElement email= driver.findElement(By.cssSelector("[id='Email']"));
-        email.sendKeys("zgkoroglu@gmail.com");
+        email.sendKeys("zehragkrl@gmail.com");
 
         WebElement password= driver.findElement(By.xpath("//input[@type='password']"));
         password.sendKeys("Q1q2q3q4.");
@@ -24,8 +24,10 @@ public class US_207_Zehra extends BaseDriver {
         loginbtn.click();
 
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
-        WebElement excellent=driver.findElement(By.xpath("//*[text()='Excellent']"));
-        excellent.click();
+        WebElement surveyExcellent=driver.findElement(By.xpath("//input[@value='1']"));
+        surveyExcellent.click();
+
+
 
         BekleVeKapat();
 
