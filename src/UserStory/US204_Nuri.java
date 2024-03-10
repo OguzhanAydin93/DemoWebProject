@@ -1,19 +1,12 @@
 package UserStory;
 
 import Utlity.BaseDriver;
-import Utlity.MyFunc;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.time.Instant;
-
-import static java.lang.String.valueOf;
 
 public class US204_Nuri extends BaseDriver {
 
@@ -41,6 +34,7 @@ public class US204_Nuri extends BaseDriver {
         } else {
             System.out.println("Sayfaya giriş yapıldı!");
         }
+        BekleVeKapat();
     }
 }
 
