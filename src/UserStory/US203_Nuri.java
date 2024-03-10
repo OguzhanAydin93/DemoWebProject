@@ -4,6 +4,7 @@ import Utlity.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 public class US203_Nuri extends BaseDriver {
@@ -32,6 +33,7 @@ public class US203_Nuri extends BaseDriver {
         WebElement login2=driver.findElement(By.cssSelector("[class='ico-login']"));
         action.moveToElement(login2).click().perform();
 
+        BekleVeKapat();
     }
 
 }
