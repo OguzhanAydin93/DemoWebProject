@@ -9,9 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,7 +133,6 @@ public class US206_Mert extends BaseDriver {
         WebElement cntBt = driver.findElement(By.cssSelector("[onclick='Shipping.save()']"));
         bekle.until(ExpectedConditions.elementToBeClickable(cntBt));
         actionDriver.moveToElement(cntBt).click().perform();
-        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[value='Payments.Manual']")));
         MyFunc.Bekle(3);
 
         WebElement payment = driver.findElement(By.cssSelector("[value='Payments.Manual']"));
@@ -143,10 +142,6 @@ public class US206_Mert extends BaseDriver {
         WebElement cntBtn1 = driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
         bekle.until(ExpectedConditions.elementToBeClickable(cntBtn1));
         actionDriver.moveToElement(cntBtn1).click().build().perform();
-
-        //WebElement creditCard = driver.findElement(By.xpath("//select[@class='dropdownlists valid']"));
-        //bekle.until(ExpectedConditions.elementToBeClickable(creditCard));
-        //actionDriver.moveToElement(creditCard).click().build().perform();
 
         WebElement visa = driver.findElement(By.cssSelector("[value='Visa']"));
         bekle.until(ExpectedConditions.elementToBeClickable(visa));
@@ -206,7 +201,7 @@ public class US206_Mert extends BaseDriver {
         WebElement other = driver.findElement(By.xpath("(//div[@class='title']/strong)[2]"));
         System.out.println("other.getText() = " + other.getText());
 
-        Assert.assertTrue("Sipariş numarası farklı",other.getText().equalsIgnoreCase(siparisler.get(0)));
+        Assert.assertTrue("Orders number is different.",other.getText().equalsIgnoreCase(siparisler.get(0)));
 
         BekleVeKapat();
 
