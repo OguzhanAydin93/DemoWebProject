@@ -15,17 +15,22 @@ public class US_207_Zehra extends BaseDriver {
         login.click();
 
         WebElement email= driver.findElement(By.cssSelector("[id='Email']"));
-        email.sendKeys("zehragkrl@gmail.com");
+        email.sendKeys("nlgncln@gmail.com");
 
         WebElement password= driver.findElement(By.xpath("//input[@type='password']"));
-        password.sendKeys("Q1q2q3q4.");
+        password.sendKeys("P12345");
 
         WebElement loginbtn= driver.findElement(By.xpath("//input[@value='Log in']"));
         loginbtn.click();
 
-        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
+        bekle.until(ExpectedConditions.urlContains("https://demowebshop.tricentis.com/"));
         WebElement surveyExcellent=driver.findElement(By.xpath("//input[@value='1']"));
         surveyExcellent.click();
+
+        WebElement voteButton=driver.findElement(By.xpath("//input[@id='vote-poll-1']"));
+        voteButton.click();
+
+
 
 
 
