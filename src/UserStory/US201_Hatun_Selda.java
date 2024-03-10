@@ -39,6 +39,8 @@ public class US201_Hatun_Selda extends BaseDriver {
         WebElement Registerbtn= driver.findElement(By.cssSelector("[id='register-button']"));
         action.moveToElement(Registerbtn).click().perform();
 
+        BekleVeKapat();
+
 
 
 
