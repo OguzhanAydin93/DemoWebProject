@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 
 public class US203_Nuri extends BaseDriver {
@@ -39,8 +39,6 @@ public class US203_Nuri extends BaseDriver {
         } else {
             System.out.println("Sayfadan çıkış  yapıldı!");
         }
-
         BekleVeKapat();
     }
-
 }
