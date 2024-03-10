@@ -1,4 +1,7 @@
 package UserStory;
 
-public class US202_Selda_Hatun {
+import Utlity.BaseDriver;
+
+public class US202_Selda_Hatun extends BaseDriver {
+
 }
