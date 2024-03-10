@@ -33,8 +33,19 @@ public class US201_Hatun_Selda extends BaseDriver {
         WebElement password= driver.findElement(By.xpath("//input[@name='Password']"));
         action.moveToElement(password).click().sendKeys("caykuruuzum1").perform();
 
-        WebElement comfırmpassword= driver.findElement(By.xpath("//input[@name='ConfirmPassword']"));
-        action.moveToElement(password).click().sendKeys("caykuruuzum1").perform();
+        WebElement comfırmpassword= driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
+        action.moveToElement(comfırmpassword).click().sendKeys("caykuruuzum1").perform();
+
+        WebElement Registerbtn= driver.findElement(By.cssSelector("[id='register-button']"));
+        action.moveToElement(Registerbtn).click().perform();
+
+
+
+
+
+
+
+
 
 
 
