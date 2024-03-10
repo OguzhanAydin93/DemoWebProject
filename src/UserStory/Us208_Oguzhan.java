@@ -135,6 +135,7 @@ public class Us208_Oguzhan extends BaseDriver {
         bekle.until(ExpectedConditions.elementToBeClickable(continue2));
         action.moveToElement(continue2).click().perform();
 
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/onepagecheckout"));
         bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[value='Payments.Manual']")));
 
         WebElement creditcard=driver.findElement(By.cssSelector("[value='Payments.Manual']"));
@@ -153,7 +154,7 @@ public class Us208_Oguzhan extends BaseDriver {
 
         WebElement cardnumber=driver.findElement(By.cssSelector("[id='CardNumber']"));
         bekle.until(ExpectedConditions.elementToBeClickable(cardnumber));
-        action.moveToElement(cardnumber).click().sendKeys("4242424242424242").perform();
+        action.moveToElement(cardnumber).click().sendKeys("4242 4242 4242 4242").perform();
 
         WebElement expirationdate1=driver.findElement(By.cssSelector("[id='ExpireMonth']"));
         Select select5=new Select(expirationdate1);
