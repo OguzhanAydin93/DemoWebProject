@@ -1,19 +1,26 @@
 package UserStory;
 
 import Utlity.BaseDriver;
+import Utlity.MyFunc;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.time.Instant;
 
-public class US203_Nuri extends BaseDriver {
+import static java.lang.String.valueOf;
+
+public class US204_Nuri extends BaseDriver {
+
     @Test
     public void Test1()
     {
         driver.get("https://demowebshop.tricentis.com/");
-
         Actions action=new Actions(driver);
 
         WebElement login=driver.findElement(By.cssSelector("[class='ico-login']"));
@@ -26,21 +33,15 @@ public class US203_Nuri extends BaseDriver {
         action.moveToElement(password).click().sendKeys("123456").perform();
 
         WebElement loginbutton=driver.findElement(By.cssSelector("[class='button-1 login-button']"));
+        bekle.until(ExpectedConditions.elementToBeClickable(loginbutton));
         action.moveToElement(loginbutton).click().perform();
 
-        WebElement logout=driver.findElement(By.cssSelector("[class='ico-logout']"));
-        action.moveToElement(logout).click().perform();
-
-        WebElement login2=driver.findElement(By.cssSelector("[class='ico-login']"));
-        action.moveToElement(login2).click().perform();
-
-        if (driver.getCurrentUrl().equals("https://demowebshop.tricentis.com/logout")) {
+        if (driver.getCurrentUrl().equals("https://demowebshop.tricentis.com/login")) {
             System.out.println("Sayfaya giriş yapılamadı!");
         } else {
-            System.out.println("Sayfadan çıkış  yapıldı!");
+            System.out.println("Sayfaya giriş yapıldı!");
         }
-
         BekleVeKapat();
     }
-
 }
+
