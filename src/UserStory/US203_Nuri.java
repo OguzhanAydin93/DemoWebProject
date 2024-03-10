@@ -34,6 +34,12 @@ public class US203_Nuri extends BaseDriver {
         WebElement login2=driver.findElement(By.cssSelector("[class='ico-login']"));
         action.moveToElement(login2).click().perform();
 
+        if (driver.getCurrentUrl().equals("https://demowebshop.tricentis.com/logout")) {
+            System.out.println("Sayfaya giriş yapılamadı!");
+        } else {
+            System.out.println("Sayfadan çıkış  yapıldı!");
+        }
+
         BekleVeKapat();
     }
 
