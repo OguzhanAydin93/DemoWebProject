@@ -26,10 +26,11 @@ public class US203_Nuri extends BaseDriver {
         WebElement loginbutton=driver.findElement(By.cssSelector("[class='button-1 login-button']"));
         action.moveToElement(loginbutton).click().perform();
 
+        WebElement logout=driver.findElement(By.cssSelector("[class='ico-logout']"));
+        action.moveToElement(logout).click().perform();
 
-
-
-
+        WebElement login2=driver.findElement(By.cssSelector("[class='ico-login']"));
+        action.moveToElement(login2).click().perform();
 
     }
 
