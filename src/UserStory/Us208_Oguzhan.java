@@ -89,6 +89,7 @@ public class Us208_Oguzhan extends BaseDriver {
         WebElement checkout=driver.findElement(By.xpath("//button[@type='submit']"));
         bekle.until(ExpectedConditions.elementToBeClickable(checkout));
         action.moveToElement(checkout).click().build().perform();
+
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/onepagecheckout"));
 
         WebElement company=driver.findElement(By.name("BillingNewAddress.Company"));
