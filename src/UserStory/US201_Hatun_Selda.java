@@ -28,7 +28,15 @@ public class US201_Hatun_Selda extends BaseDriver {
         action.moveToElement(lastname).click().sendKeys("YÜKSEL").perform();
 
         WebElement email= driver.findElement(By.xpath("//input[@name='Email']"));
-        action.moveToElement(email).click().sendKeys("hatunyksel.106@gmail.com").perform();
+        action.moveToElement(email).click().sendKeys("acemihoca.01@gmail.com").perform();
+
+        WebElement password= driver.findElement(By.xpath("//input[@name='Password']"));
+        action.moveToElement(password).click().sendKeys("caykuruuzum1").perform();
+
+        WebElement comfırmpassword= driver.findElement(By.xpath("//input[@name='ConfirmPassword']"));
+        action.moveToElement(password).click().sendKeys("caykuruuzum1").perform();
+
+
 
 
 
