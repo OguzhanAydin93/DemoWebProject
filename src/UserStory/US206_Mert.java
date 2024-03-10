@@ -120,45 +120,67 @@ public class US206_Mert extends BaseDriver {
 
         WebElement cntBtn1 = driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
         actionDriver.moveToElement(cntBtn1).click().build().perform();
-        for (int i = 0; i <43 ; i++) {
+        for (int i = 0; i < 43; i++) {
             actionDriver.keyDown(Keys.TAB).build().perform();
         }
         actionDriver.keyDown(Keys.ENTER);
         actionDriver.keyUp(Keys.TAB);
         actionDriver.keyUp(Keys.ENTER);
-        MyFunc.Bekle(5);
-
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='dropdownlists valid']")));
 
         WebElement creditCard = driver.findElement(By.cssSelector("[class='dropdownlists valid']"));
         Select card = new Select(creditCard);
         card.selectByIndex(0);
 
-        WebElement cardHolderName=driver.findElement(By.id("CardholderName"));
+        WebElement cardHolderName = driver.findElement(By.id("CardholderName"));
+        bekle.until(ExpectedConditions.elementToBeClickable(cardHolderName));
         actionDriver.moveToElement(cardHolderName).click().sendKeys("Mert Ozmen").perform();
 
-        WebElement cardHolder=driver.findElement(By.id("CardNumber"));
+        WebElement cardHolder = driver.findElement(By.id("CardNumber"));
+        bekle.until(ExpectedConditions.elementToBeClickable(cardHolder));
         actionDriver.moveToElement(cardHolder).click().sendKeys("4242 4242 4242 4242").perform();
 
-        WebElement month=driver.findElement(By.id("ExpireMonth"));
-        Select expireMonth=new Select(month);
+        WebElement month = driver.findElement(By.id("ExpireMonth"));
+        Select expireMonth = new Select(month);
         expireMonth.selectByValue("1");
 
-        WebElement year=driver.findElement(By.id("ExpireYear"));
-        Select expireYear=new Select(year);
+        WebElement year = driver.findElement(By.id("ExpireYear"));
+        Select expireYear = new Select(year);
         expireYear.selectByValue("2032");
 
-        WebElement cardCode=driver.findElement(By.id("CardCode"));
+        WebElement cardCode = driver.findElement(By.id("CardCode"));
         actionDriver.moveToElement(cardCode).click().sendKeys("123").perform();
 
-        WebElement cnBtn=driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
+        WebElement cnBtn = driver.findElement(By.cssSelector("[onclick='PaymentInfo.save()']"));
         actionDriver.moveToElement(cnBtn).click().perform();
 
-        WebElement confirmButton=driver.findElement(By.cssSelector("[onclick='ConfirmOrder.save()']"));
+        WebElement confirmButton = driver.findElement(By.cssSelector("[onclick='ConfirmOrder.save()']"));
+        bekle.until(ExpectedConditions.elementToBeClickable(confirmButton));
         actionDriver.moveToElement(confirmButton).click().perform();
 
-        WebElement isItEquals=driver.findElement(By.cssSelector("[class='title']>strong"));
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/checkout/completed/"));
+        WebElement isItEquals = driver.findElement(By.cssSelector("[class='title']>strong"));
+        System.out.println("isItEquals.getText() = " + isItEquals.getText());
 
-        Assert.assertEquals(isItEquals,"Your order has been successfully processed!");
+        Assert.assertEquals(isItEquals.getText(), "Your order has been successfully processed!");
+
+        WebElement logo = driver.findElement(By.xpath("//*[@value='Continue']"));
+        actionDriver.moveToElement(logo).click().perform();
+
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
+
+        WebElement orders=driver.findElement(By.linkText("Orders"));
+        actionDriver.moveToElement(orders).click().perform();
+        bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/customer/orders"));
+
+        WebElement orderNumber=driver.findElement(By.cssSelector("[class='details']>li"));
+        WebElement other=driver.findElement(By.xpath("(//div[@class='title']/strong)[2]"));
+
+        Assert.assertEquals(orderNumber.getText(),other.getText());
+
+        BekleVeKapat();
+
+
 
 
     }
