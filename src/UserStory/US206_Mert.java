@@ -119,18 +119,20 @@ public class US206_Mert extends BaseDriver {
         actionDriver.moveToElement(payment).click().build().perform();
 
         WebElement cntBtn1 = driver.findElement(By.cssSelector("[onclick='PaymentMethod.save()']"));
+        bekle.until(ExpectedConditions.elementToBeClickable(cntBtn1));
         actionDriver.moveToElement(cntBtn1).click().build().perform();
-        for (int i = 0; i < 43; i++) {
+
+        for (int i = 0; i < 34; i++) {
             actionDriver.keyDown(Keys.TAB).build().perform();
         }
         actionDriver.keyDown(Keys.ENTER);
         actionDriver.keyUp(Keys.TAB);
         actionDriver.keyUp(Keys.ENTER);
-        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='dropdownlists valid']")));
 
         WebElement creditCard = driver.findElement(By.cssSelector("[class='dropdownlists valid']"));
-        Select card = new Select(creditCard);
-        card.selectByIndex(0);
+        actionDriver.moveToElement(creditCard).click().perform();
+        WebElement visa = driver.findElement(By.cssSelector("[value='Visa']"));
+        actionDriver.moveToElement(visa).click().perform();
 
         WebElement cardHolderName = driver.findElement(By.id("CardholderName"));
         bekle.until(ExpectedConditions.elementToBeClickable(cardHolderName));
@@ -169,18 +171,16 @@ public class US206_Mert extends BaseDriver {
 
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/"));
 
-        WebElement orders=driver.findElement(By.linkText("Orders"));
+        WebElement orders = driver.findElement(By.linkText("Orders"));
         actionDriver.moveToElement(orders).click().perform();
         bekle.until(ExpectedConditions.urlToBe("https://demowebshop.tricentis.com/customer/orders"));
 
-        WebElement orderNumber=driver.findElement(By.cssSelector("[class='details']>li"));
-        WebElement other=driver.findElement(By.xpath("(//div[@class='title']/strong)[2]"));
+        WebElement orderNumber = driver.findElement(By.cssSelector("[class='details']>li"));
+        WebElement other = driver.findElement(By.xpath("(//div[@class='title']/strong)[2]"));
 
-        Assert.assertEquals(orderNumber.getText(),other.getText());
+        Assert.assertEquals(orderNumber.getText(), other.getText());
 
         BekleVeKapat();
-
-
 
 
     }
