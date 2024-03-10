@@ -41,6 +41,7 @@ public class US204_Nuri extends BaseDriver {
         } else {
             System.out.println("Sayfaya giriş yapıldı!");
         }
+        BekleVeKapat();
     }
 }
 
