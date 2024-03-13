@@ -143,11 +143,6 @@ public class US206_Mert extends BaseDriver {
         bekle.until(ExpectedConditions.elementToBeClickable(cntBtn1));
         actionDriver.moveToElement(cntBtn1).click().build().perform();
 
-        WebElement visa = driver.findElement(By.cssSelector("[value='Visa']"));
-        bekle.until(ExpectedConditions.elementToBeClickable(visa));
-        actionDriver.moveToElement(visa).click().build();
-        actionDriver.perform();
-
         WebElement cardHolderName = driver.findElement(By.id("CardholderName"));
         bekle.until(ExpectedConditions.elementToBeClickable(cardHolderName));
         actionDriver.moveToElement(cardHolderName).click().sendKeys("Mert Ozmen").perform();
